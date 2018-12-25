@@ -1,0 +1,25 @@
+import nltk
+
+text = open("text.txt", 'r',encoding='utf-8')
+text1 = text.read()
+s = nltk.sent_tokenize(text1)
+l = nltk.word_tokenize(text1)
+print("Среднее количсетво слов в предложении: ", (len(l)/len(s)))
+
+
+p =0
+e=0
+n = 0
+for i in s:
+    n+=1
+    t = i.split()
+    g=0
+    for j in t:
+        o=j.split()
+        if len(o) == 1:
+            g+=1
+    if(g>p):
+        p=g
+        e=n
+
+print("Предложение, в котором больше всего односимвольных слов:", s[e-1])
